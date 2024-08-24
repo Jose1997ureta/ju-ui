@@ -1,0 +1,82 @@
+{
+	"name": "ju-ui",
+	"license": "ISC",
+	"private": false,
+	"version": "0.0.1",
+	"type": "module",
+	"main": "dist/ju-ui.umd.cjs",
+	"module": "dist/ju-ui.js",
+	"types": "dist/ju-ui.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/ju-ui.js",
+			"require": "./dist/ju-ui.umd.cjs",
+			"types": "./dist/ju-ui.d.ts"
+		},
+		"./dist/style.css": "./dist/style.css"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc & vite build && npm run build:css",
+		"build:css": "tailwindcss build src/index.css -o dist/style.css --minify",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
+	},
+	"dependencies": {
+		"@headlessui/react": "1.7.19",
+		"@wojtekmaj/react-daterange-picker": "6.0.0",
+		"class-variance-authority": "0.7.0",
+		"clsx": "2.1.1",
+		"formik": "2.4.6",
+		"react": "18.3.1",
+		"react-calendar": "5.0.0",
+		"react-date-picker": "11.0.0",
+		"react-dom": "18.3.1",
+		"react-icons": "5.3.0",
+		"react-select": "5.8.0",
+		"react-time-picker": "7.0.0",
+		"react-tiny-popover": "8.0.4",
+		"styled-components": "6.1.12",
+		"tailwind-merge": "2.5.2",
+		"uuid": "10.0.0",
+		"vite-tsconfig-paths": "4.3.2",
+		"yup": "1.4.0"
+	},
+	"devDependencies": {
+		"@storybook/addon-essentials": "^8.2.9",
+		"@storybook/addon-interactions": "^8.2.9",
+		"@storybook/addon-links": "^8.2.9",
+		"@storybook/addon-onboarding": "^8.2.9",
+		"@storybook/blocks": "^8.2.9",
+		"@storybook/react": "^8.2.9",
+		"@storybook/react-vite": "^8.2.9",
+		"@storybook/test": "^8.2.9",
+		"@types/react": "18.3.4",
+		"@types/react-dom": "18.3.0",
+		"@types/yargs": "17.0.32",
+		"@typescript-eslint/eslint-plugin": "6.21.0",
+		"@typescript-eslint/parser": "6.21.0",
+		"@vitejs/plugin-react": "4.2.1",
+		"autoprefixer": "10.4.17",
+		"cssnano": "6.1.2",
+		"eslint": "8.57.0",
+		"eslint-config-prettier": "9.1.0",
+		"eslint-config-react": "1.1.7",
+		"eslint-config-standard-with-typescript": "43.0.1",
+		"eslint-plugin-react": "7.33.2",
+		"eslint-plugin-react-hooks": "4.6.0",
+		"eslint-plugin-react-refresh": "0.4.5",
+		"eslint-plugin-storybook": "0.6.15",
+		"postcss": "8.4.41",
+		"storybook": "8.2.9",
+		"tailwindcss": "3.4.10",
+		"typescript": "5.2.2",
+		"vite": "5.0.13",
+		"vite-plugin-dts": "3.9.1",
+		"vite-plugin-windicss": "1.9.3"
+	}
+}

@@ -1,0 +1,22 @@
+[
+	{
+		"id": "name",
+		"name": "Nombre"
+	},
+	{
+		"id": "lastName",
+		"name": "Apellidos"
+	},
+	{
+		"id": "email",
+		"name": "Correo Electronico"
+	},
+	{
+		"id": "gender",
+		"name": "Genero"
+	},
+	{
+		"id": "married",
+		"name": "Es Casado?"
+	}
+]
