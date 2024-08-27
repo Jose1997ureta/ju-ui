@@ -52,7 +52,7 @@ export const Size: Story = {
 						placeholder="Ingresa tu nombre"
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="sm"
+						size="sm"
 					/>
 				</FormItem>
 
@@ -62,7 +62,7 @@ export const Size: Story = {
 						placeholder="Ingresa tu nombre"
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="md"
+						size="md"
 					/>
 				</FormItem>
 
@@ -72,7 +72,7 @@ export const Size: Story = {
 						placeholder="Ingresa tu nombre"
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="lg"
+						size="lg"
 					/>
 				</FormItem>
 			</div>
@@ -95,7 +95,7 @@ export const State: Story = {
 						placeholder="Ingresa tu nombre"
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="sm"
+						size="sm"
 					/>
 				</FormItem>
 
@@ -105,7 +105,7 @@ export const State: Story = {
 						placeholder="Ingresa tu nombre"
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="sm"
+						size="sm"
 						error="Ingrese el nombre valido"
 						touched
 					/>
@@ -130,7 +130,7 @@ export const WithIcon: Story = {
 						placeholder="Ingresa tu nombre"
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="sm"
+						size="sm"
 						startContent={<AiOutlineUser />}
 					/>
 				</FormItem>
@@ -141,8 +141,9 @@ export const WithIcon: Story = {
 						placeholder="Ingresa tu nombre"
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="md"
+						size="md"
 						startContent={<AiFillApi />}
+						disabled
 					/>
 				</FormItem>
 
@@ -153,7 +154,7 @@ export const WithIcon: Story = {
 						maxLength={40}
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="lg"
+						size="lg"
 						startContent={<AiFillApi />}
 						error="Ingrese un valor válido"
 						touched
@@ -180,7 +181,7 @@ export const Counter: Story = {
 						maxLength={40}
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="sm"
+						size="sm"
 						startContent={<AiOutlineUser />}
 						isLabelCounter
 					/>
@@ -193,7 +194,7 @@ export const Counter: Story = {
 						maxLength={40}
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="md"
+						size="md"
 						startContent={<AiFillApi />}
 						isLabelCounter
 					/>
@@ -206,7 +207,7 @@ export const Counter: Story = {
 						maxLength={40}
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="lg"
+						size="lg"
 						startContent={<AiFillApi />}
 						isLabelCounter
 						error="Ingrese un valor válido"
@@ -234,7 +235,7 @@ export const Disabled: Story = {
 						maxLength={40}
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="sm"
+						size="sm"
 						startContent={<AiOutlineUser />}
 						isLabelCounter
 					/>
@@ -246,7 +247,7 @@ export const Disabled: Story = {
 						maxLength={40}
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="md"
+						size="md"
 						startContent={<AiFillApi />}
 						isLabelCounter
 					/>
@@ -258,7 +259,7 @@ export const Disabled: Story = {
 						maxLength={40}
 						onChange={(e) => setValue(e.target.value)}
 						value={value}
-						sizes="lg"
+						size="lg"
 						startContent={<AiFillApi />}
 						isLabelCounter
 						error="Ingrese un valor válido"

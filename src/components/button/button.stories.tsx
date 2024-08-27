@@ -46,7 +46,7 @@ export const Sizes: Story = {
 	},
 };
 
-export const Colors: Story = {
+export const Color: Story = {
 	args: {
 		children: "Button",
 	},
@@ -102,15 +102,15 @@ export const Variant: Story = {
 					Neutral
 				</Button>
 
-				<Button variant="outline" color="success">
+				<Button variant="flat" color="success">
 					Success
 				</Button>
 
-				<Button variant="outline" color="warning">
+				<Button variant="flat" color="warning">
 					Warning
 				</Button>
 
-				<Button variant="outline" color="danger">
+				<Button variant="flat" color="danger">
 					Danger
 				</Button>
 			</div>
@@ -162,48 +162,36 @@ export const WithIcons: Story = {
 	render: function Render() {
 		return (
 			<div className="flex items-center gap-3 border py-4 px-4 border-neutral-300 rounded-md">
-				<Button
-					variant="solid"
-					color="primary"
-					startContent={<AiFillApi />}
-				>
+				<Button variant="solid" color="primary" startContent={<AiFillApi />}>
 					Primary
 				</Button>
 
-				<Button
-					variant="outline"
-					color="secondary"
-					endContent={<AiFillApi />}
-				>
+				<Button variant="outline" color="secondary" endContent={<AiFillApi />}>
 					Secondary
 				</Button>
 
-				<Button
-					variant="solid"
-					color="neutral"
-					startContent={<AiFillApi />}
-				>
+				<Button variant="solid" color="neutral" startContent={<AiFillApi />}>
 					Neutral
 				</Button>
 
-				<Button
-					variant="outline"
-					color="success"
-					endContent={<AiFillApi />}
-				>
+				<Button variant="outline" color="success" endContent={<AiFillApi />}>
 					Success
 				</Button>
 
-				<Button
-					variant="solid"
-					color="warning"
-					startContent={<AiFillApi />}
-				>
+				<Button variant="solid" color="warning" startContent={<AiFillApi />}>
 					Warning
 				</Button>
 
 				<Button variant="outline" color="danger" endContent={<AiFillApi />}>
 					Danger
+				</Button>
+
+				<Button variant="flat" color="primary" endContent={<AiFillApi />}>
+					Primary
+				</Button>
+
+				<Button variant="flat" color="secondary" endContent={<AiFillApi />}>
+					Secondary
 				</Button>
 			</div>
 		);
@@ -313,6 +301,23 @@ export const Disabled: Story = {
 				<Button
 					variant="outline"
 					color="danger"
+					endContent={<AiFillApi />}
+					disabled
+				>
+					Danger
+				</Button>
+
+				<Button
+					variant="flat"
+					color="primary"
+					endContent={<AiFillApi />}
+					disabled
+				>
+					Danger
+				</Button>
+				<Button
+					variant="flat"
+					color="secondary"
 					endContent={<AiFillApi />}
 					disabled
 				>

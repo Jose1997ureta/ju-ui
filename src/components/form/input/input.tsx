@@ -24,7 +24,7 @@ const InputClassProps = cva(
 	],
 	{
 		variants: {
-			sizes: {
+			size: {
 				sm: "h-[30px] text-xs",
 				md: "h-[34px] text-sm",
 				lg: "h-[38px] text-sm",
@@ -32,19 +32,19 @@ const InputClassProps = cva(
 		},
 		compoundVariants: [],
 		defaultVariants: {
-			sizes: "md",
+			size: "md",
 		},
 	}
 );
 
-export type InputProps = VariantProps<typeof InputClassProps> &
-	InputComponentProps;
+export type InputProps = InputComponentProps &
+	VariantProps<typeof InputClassProps>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
 		{
 			type = "text",
-			sizes = "md",
+			size = "md",
 			className,
 			classNameContainer,
 			startContent,
@@ -54,11 +54,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 			isErrorText = true,
 			disabled,
 			pattern = "",
-			value,
-			onBlur,
 			onChange,
-			placeholder,
-			name,
 			...props
 		},
 		ref
@@ -83,7 +79,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
 		const classNameInput = cn(
 			InputClassProps({
-				sizes,
+				size,
 				className,
 			}),
 			classError,
@@ -100,22 +96,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
 		return (
 			<div className={twMerge(classNameContainer)}>
-				<div className="w-full relative ">
+				<div className="w-full relative">
 					{startContent ? (
 						<div className={twMerge("left-0", classIcon)}>{startContent}</div>
 					) : null}
 
 					<input
 						ref={ref}
-						name={name}
 						autoComplete="off"
+						autoCapitalize="off"
 						type={type}
 						onChange={handleChange}
 						className={classNameInput}
 						disabled={disabled}
-						placeholder={placeholder}
-						value={value}
-						onBlur={onBlur}
 						{...props}
 					/>
 					{endContent ? (

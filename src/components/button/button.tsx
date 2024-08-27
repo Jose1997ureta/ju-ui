@@ -2,7 +2,6 @@ import { forwardRef } from "react";
 import { LuLoader2 } from "react-icons/lu";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/functions";
-import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 import { ButtonComponentProps } from "./interface/button.interface";
 
@@ -28,6 +27,7 @@ const ButtonClassProps = cva(
 			variant: {
 				solid: "",
 				outline: "border",
+				flat: "",
 			},
 		},
 
@@ -45,6 +45,12 @@ const ButtonClassProps = cva(
 				className:
 					"text-primary-700 border-primary-700 bg-white disabled:opacity-50",
 			},
+			{
+				variant: "flat",
+				color: "primary",
+				className:
+					"text-primary-700 hover:bg-primary-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+			},
 			/* SECONDARY */
 			{
 				variant: "solid",
@@ -57,6 +63,12 @@ const ButtonClassProps = cva(
 				color: "secondary",
 				className:
 					"text-secondary-700 border-secondary-700 bg-white disabled:opacity-50",
+			},
+			{
+				variant: "flat",
+				color: "secondary",
+				className:
+					"text-secondary-700 hover:bg-secondary-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
 			},
 			/* NEUTRAL */
 			{
@@ -71,6 +83,12 @@ const ButtonClassProps = cva(
 				className:
 					"text-neutral-700 border-neutral-700 bg-white disabled:opacity-50",
 			},
+			{
+				variant: "flat",
+				color: "neutral",
+				className:
+					"text-neutral-700 hover:bg-neutral-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+			},
 			/* SUCCESS */
 			{
 				variant: "solid",
@@ -83,6 +101,12 @@ const ButtonClassProps = cva(
 				color: "success",
 				className:
 					"text-success-700 border-success-700 bg-white disabled:opacity-50",
+			},
+			{
+				variant: "flat",
+				color: "success",
+				className:
+					"text-success-700 hover:bg-success-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
 			},
 			/* WARNING */
 			{
@@ -97,6 +121,12 @@ const ButtonClassProps = cva(
 				className:
 					"text-warning-800 border-warning-700 bg-white disabled:opacity-50",
 			},
+			{
+				variant: "flat",
+				color: "warning",
+				className:
+					"text-warning-700 hover:bg-warning-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+			},
 			/* DANGER */
 			{
 				variant: "solid",
@@ -109,6 +139,12 @@ const ButtonClassProps = cva(
 				color: "danger",
 				className:
 					"text-danger-700 border-danger-700 bg-white disabled:opacity-50",
+			},
+			{
+				variant: "flat",
+				color: "danger",
+				className:
+					"text-danger-700 hover:bg-danger-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
 			},
 		],
 		defaultVariants: {
@@ -134,45 +170,39 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			endContent,
 			disabled = false,
 			loading = false,
-			onClick,
 			...props
 		},
 		ref
 	) => {
-		const classLoading = twMerge(
+		const classLoading = clsx(
 			"animate-spin fill-transparent",
-			clsx(
-				size === "sm" && "w-3 h-3",
-				size === "md" && "w-4 h-4",
-				size === "lg" && "w-5 h-5"
-			)
+			size === "sm" && "w-3 h-3",
+			size === "md" && "w-4 h-4",
+			size === "lg" && "w-5 h-5"
+		);
+
+		const classNameButton = cn(
+			ButtonClassProps({
+				size,
+				color,
+				variant,
+				className,
+			}),
+			!disabled && "active:scale-[0.98]"
 		);
 
 		return (
 			<button
 				ref={ref}
-				className={cn(
-					ButtonClassProps({
-						size,
-						color,
-						variant,
-						className,
-					}),
-					!disabled && "active:scale-[0.98]"
-				)}
+				className={classNameButton}
 				disabled={disabled}
-				onClick={onClick}
 				{...props}
 			>
 				{startContent || null}
 
 				{children}
 
-				{loading ? (
-					<LuLoader2 className={classLoading} />
-				) : (
-					endContent || null
-				)}
+				{loading ? <LuLoader2 className={classLoading} /> : endContent || null}
 			</button>
 		);
 	}

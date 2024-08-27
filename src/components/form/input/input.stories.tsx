@@ -112,7 +112,7 @@ export const Size: Story = {
 					<FormItem.Input
 						placeholder="Ingresa tu nombre"
 						type="text"
-						sizes="sm"
+						size="sm"
 						value=""
 					/>
 				</FormItem>
@@ -120,7 +120,7 @@ export const Size: Story = {
 					<FormItem.Input
 						placeholder="Ingresa tu password"
 						type="password"
-						sizes="md"
+						size="md"
 						value=""
 					/>
 				</FormItem>
@@ -128,7 +128,7 @@ export const Size: Story = {
 					<FormItem.Input
 						placeholder="Ingresa tu correo"
 						type="email"
-						sizes="lg"
+						size="lg"
 						value=""
 					/>
 				</FormItem>
@@ -191,10 +191,12 @@ export const WithLabel: Story = {
 					<FormItem.Label label="Nombre" size="md" />
 					<FormItem.Input
 						value=""
+						id="d"
 						placeholder="Ingresar tu nombre"
 						startContent={<AiOutlineUser />}
-						sizes="md"
+						size="md"
 						disabled={false}
+						pattern=""
 					/>
 				</FormItem>
 
@@ -204,7 +206,7 @@ export const WithLabel: Story = {
 						value=""
 						placeholder="Ingresar tu nombre"
 						startContent={<AiOutlineUser />}
-						sizes="sm"
+						size="sm"
 					/>
 				</FormItem>
 
@@ -218,7 +220,7 @@ export const WithLabel: Story = {
 						value=""
 						placeholder="Ingresar tu nombre"
 						startContent={<AiOutlineUser />}
-						sizes="lg"
+						size="lg"
 					/>
 				</FormItem>
 
