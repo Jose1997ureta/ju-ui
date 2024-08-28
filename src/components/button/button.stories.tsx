@@ -90,28 +90,20 @@ export const Variant: Story = {
 	render: function Render() {
 		return (
 			<div className="flex items-center gap-3 border py-4 px-4 border-neutral-300 rounded-md">
-				<Button variant="outline" color="primary">
+				<Button variant="solid" color="danger">
 					Primary
 				</Button>
 
-				<Button variant="outline" color="secondary">
+				<Button variant="outline" color="danger">
 					Secondary
 				</Button>
 
-				<Button variant="outline" color="neutral">
+				<Button variant="light" color="danger">
 					Neutral
 				</Button>
 
-				<Button variant="flat" color="success">
-					Success
-				</Button>
-
-				<Button variant="flat" color="warning">
-					Warning
-				</Button>
-
 				<Button variant="flat" color="danger">
-					Danger
+					Success
 				</Button>
 			</div>
 		);

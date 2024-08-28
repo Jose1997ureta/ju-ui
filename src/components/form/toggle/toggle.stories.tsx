@@ -59,24 +59,9 @@ export const Size: Story = {
 
 		return (
 			<div className="flex items-center gap-3 border py-4 px-4 border-neutral-300 rounded-md">
-				<Toggle
-					id="toogle1"
-					value={value}
-					onChange={handleChange}
-					sizes="sm"
-				/>
-				<Toggle
-					id="toogle2"
-					value={value}
-					onChange={handleChange}
-					sizes="md"
-				/>
-				<Toggle
-					id="toogle3"
-					value={value}
-					onChange={handleChange}
-					sizes="lg"
-				/>
+				<Toggle id="toogle1" value={value} onChange={handleChange} size="sm" />
+				<Toggle id="toogle2" value={value} onChange={handleChange} size="md" />
+				<Toggle id="toogle3" value={value} onChange={handleChange} size="lg" />
 			</div>
 		);
 	},
@@ -305,7 +290,6 @@ export const State: Story = {
 					error="El campo es requerido"
 					touched
 					positionLabel="start"
-					isErrorText={false}
 				/>
 			</div>
 		);

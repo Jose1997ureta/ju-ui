@@ -98,15 +98,19 @@ export const Variant: Story = {
 	render: function Render() {
 		return (
 			<div className="flex items-center gap-3 border py-4 px-4 border-neutral-300 rounded-md">
-				<ButtonIcon variant="light" color="default" size="sm">
-					<AiFillApi />
-				</ButtonIcon>
-
 				<ButtonIcon variant="solid" color="default" size="sm">
 					<AiFillApi />
 				</ButtonIcon>
 
 				<ButtonIcon variant="outline" color="default" size="sm">
+					<AiFillApi />
+				</ButtonIcon>
+
+				<ButtonIcon variant="light" color="default" size="sm">
+					<AiFillApi />
+				</ButtonIcon>
+
+				<ButtonIcon variant="flat" color="default" size="sm">
 					<AiFillApi />
 				</ButtonIcon>
 			</div>

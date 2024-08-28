@@ -28,6 +28,7 @@ const ButtonClassProps = cva(
 				solid: "",
 				outline: "border",
 				flat: "",
+				light: "",
 			},
 		},
 
@@ -46,10 +47,15 @@ const ButtonClassProps = cva(
 					"text-primary-700 border-primary-700 bg-white disabled:opacity-50",
 			},
 			{
-				variant: "flat",
+				variant: "light",
 				color: "primary",
 				className:
 					"text-primary-700 hover:bg-primary-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+			},
+			{
+				variant: "flat",
+				color: "primary",
+				className: "text-primary-700 bg-primary-100 disabled:opacity-50",
 			},
 			/* SECONDARY */
 			{
@@ -65,10 +71,15 @@ const ButtonClassProps = cva(
 					"text-secondary-700 border-secondary-700 bg-white disabled:opacity-50",
 			},
 			{
-				variant: "flat",
+				variant: "light",
 				color: "secondary",
 				className:
 					"text-secondary-700 hover:bg-secondary-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+			},
+			{
+				variant: "flat",
+				color: "secondary",
+				className: "text-secondary-700 bg-secondary-100 disabled:opacity-50",
 			},
 			/* NEUTRAL */
 			{
@@ -84,10 +95,15 @@ const ButtonClassProps = cva(
 					"text-neutral-700 border-neutral-700 bg-white disabled:opacity-50",
 			},
 			{
-				variant: "flat",
+				variant: "light",
 				color: "neutral",
 				className:
-					"text-neutral-700 hover:bg-neutral-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+					"text-neutral-700 hover:bg-neutral-300 bg-white disabled:opacity-50 disabled:hover:bg-white",
+			},
+			{
+				variant: "flat",
+				color: "neutral",
+				className: "text-neutral-700 bg-neutral-300 disabled:opacity-50",
 			},
 			/* SUCCESS */
 			{
@@ -103,10 +119,15 @@ const ButtonClassProps = cva(
 					"text-success-700 border-success-700 bg-white disabled:opacity-50",
 			},
 			{
-				variant: "flat",
+				variant: "light",
 				color: "success",
 				className:
 					"text-success-700 hover:bg-success-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+			},
+			{
+				variant: "flat",
+				color: "success",
+				className: "text-success-700 bg-success-100 disabled:opacity-50",
 			},
 			/* WARNING */
 			{
@@ -119,13 +140,18 @@ const ButtonClassProps = cva(
 				variant: "outline",
 				color: "warning",
 				className:
-					"text-warning-800 border-warning-700 bg-white disabled:opacity-50",
+					"text-warning-700 border-warning-700 bg-white disabled:opacity-50",
+			},
+			{
+				variant: "light",
+				color: "warning",
+				className:
+					"text-warning-700 hover:bg-warning-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
 			},
 			{
 				variant: "flat",
 				color: "warning",
-				className:
-					"text-warning-700 hover:bg-warning-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+				className: "text-warning-700 bg-warning-100 disabled:opacity-50",
 			},
 			/* DANGER */
 			{
@@ -141,10 +167,15 @@ const ButtonClassProps = cva(
 					"text-danger-700 border-danger-700 bg-white disabled:opacity-50",
 			},
 			{
-				variant: "flat",
+				variant: "light",
 				color: "danger",
 				className:
 					"text-danger-700 hover:bg-danger-100 bg-white disabled:opacity-50 disabled:hover:bg-white",
+			},
+			{
+				variant: "flat",
+				color: "danger",
+				className: "text-danger-700 bg-danger-100 disabled:opacity-50",
 			},
 		],
 		defaultVariants: {

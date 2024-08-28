@@ -63,19 +63,19 @@ export const Size: Story = {
 					id="checkbox"
 					value={value}
 					onChange={handleChange}
-					sizes="sm"
+					size="sm"
 				/>
 				<CheckBox
 					id="checkbox1"
 					value={value}
 					onChange={handleChange}
-					sizes="md"
+					size="md"
 				/>
 				<CheckBox
 					id="checkbox2"
 					value={value}
 					onChange={handleChange}
-					sizes="lg"
+					size="lg"
 				/>
 			</div>
 		);
@@ -281,6 +281,7 @@ export const State: Story = {
 					description="Empresa Onroad / Expreso"
 					error="El campo es requerido"
 					touched
+					size="sm"
 				/>
 				<CheckBox
 					id="checkbox2"
@@ -295,6 +296,7 @@ export const State: Story = {
 					positionLabel="start"
 				/>
 				<CheckBox
+					size="lg"
 					id="checkbox3"
 					value={value}
 					onChange={handleChange}
@@ -305,7 +307,6 @@ export const State: Story = {
 					error="El campo es requerido"
 					touched
 					positionLabel="start"
-					isErrorText={false}
 				/>
 			</div>
 		);

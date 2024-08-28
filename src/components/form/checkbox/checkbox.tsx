@@ -21,7 +21,7 @@ const CheckboxClassProps = cva(
 				danger: "checked:bg-danger-700 border-danger-700",
 				warning: "checked:bg-warning-700 border-warning-700",
 			},
-			sizes: {
+			size: {
 				sm: "w-4 h-4",
 				md: "w-[18px] h-[18px]",
 				lg: "w-5 h-5",
@@ -29,7 +29,7 @@ const CheckboxClassProps = cva(
 		},
 		defaultVariants: {
 			color: "secondary",
-			sizes: "md",
+			size: "md",
 		},
 	}
 );
@@ -42,7 +42,7 @@ export const CheckBox = ({
 	label,
 	required = false,
 	disabled = false,
-	sizes = "md",
+	size = "md",
 	value,
 	color,
 	onChange,
@@ -50,7 +50,6 @@ export const CheckBox = ({
 	description,
 	error,
 	touched,
-	isErrorText = true,
 	className,
 	...props
 }: CheckboxProps) => {
@@ -71,25 +70,23 @@ export const CheckBox = ({
 		}
 	};
 
-	const classText = twMerge(
-		"text-neutral-700",
-		clsx(
-			sizes === "sm" && "text-xs",
-			sizes === "md" && "text-sm",
-			sizes === "lg" && "text-base",
+	const classText = clsx(
+		"text-text-800 leading-none",
+		size === "sm" && "text-xs",
+		size === "md" && "text-sm",
+		size === "lg" && "text-base",
 
-			required && "after:content-['*'] after:ml-1",
-			disabled ? "after:text-neutral-800" : "after:text-danger-700"
-		)
+		required && "after:content-['*'] after:ml-0.5",
+		disabled ? "after:text-neutral-800" : "after:text-danger-700"
 	);
 
 	const classSvg = twMerge(
 		clsx(
 			"absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2",
 			valueCheck && "block",
-			sizes === "sm" && "h-3 w-3",
-			sizes === "md" && "h-4 w-4",
-			sizes === "lg" && "h-5 w-5"
+			size === "sm" && "h-3 w-3",
+			size === "md" && "h-4 w-4",
+			size === "lg" && "h-5 w-5"
 		)
 	);
 
@@ -114,7 +111,7 @@ export const CheckBox = ({
 					</div>
 				) : null}
 
-				<div className="relative inline-flex">
+				<div className="relative flex">
 					<input
 						id={id}
 						type="checkbox"
@@ -124,7 +121,7 @@ export const CheckBox = ({
 						onClick={(e) => e.stopPropagation()}
 						className={cn(
 							CheckboxClassProps({
-								sizes,
+								size,
 								color,
 							}),
 							classInput
@@ -145,6 +142,7 @@ export const CheckBox = ({
 						<polyline points="20 6 9 17 4 12"></polyline>
 					</svg>
 				</div>
+
 				{positionLabel === "end" && (label || description) ? (
 					<div onClick={handleClick} className="cursor-pointer">
 						{label ? <p className={classText}>{label}</p> : null}
@@ -155,9 +153,7 @@ export const CheckBox = ({
 				) : null}
 			</div>
 
-			{!disabled && error && touched && isErrorText && (
-				<LabelErrorForm text={error} />
-			)}
+			{!disabled && error && touched && <LabelErrorForm text={error} />}
 		</div>
 	);
 };

@@ -161,8 +161,8 @@ export const Name: Story = {
 	render: function Render() {
 		return (
 			<div className="flex items-center gap-3 border py-4 px-4 border-neutral-300 rounded-md">
-				<Avatar size="xs" isBorder name="+105" borderColor="success" />
-				<Avatar size="sm" isBorder name="Antonio" />
+				<Avatar size="xs" name="+105" />
+				<Avatar size="sm" name="Antonio" />
 				<Avatar name="Jose" />
 				<Avatar size="lg" name="Jose" />
 			</div>
@@ -255,10 +255,7 @@ export const Custom: Story = {
 	render: function Render() {
 		return (
 			<div className="flex items-center gap-3 border py-4 px-4 border-neutral-300 rounded-md">
-				<Avatar
-					status="active"
-					content={<LuBellRing className="w-5 h-5" />}
-				/>
+				<Avatar status="active" content={<LuBellRing className="w-5 h-5" />} />
 				<Avatar
 					status="active"
 					content={<LuBellRing className="w-5 h-5" />}

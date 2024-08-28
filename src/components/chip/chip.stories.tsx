@@ -56,24 +56,11 @@ export const Variant: Story = {
 				<Chip variant="solid" color="primary">
 					Primary
 				</Chip>
-				<Chip variant="solid" color="secondary">
+				<Chip variant="outline" color="primary">
 					Secondary
 				</Chip>
-				<Chip variant="solid" color="neutral">
+				<Chip variant="flat" color="primary">
 					Neutral
-				</Chip>
-				<Chip variant="solid" color="success">
-					Suecess
-				</Chip>
-				<Chip variant="solid" color="warning">
-					Warning
-				</Chip>
-				<Chip variant="solid" color="danger">
-					Danger
-				</Chip>
-
-				<Chip variant="solid" color="white">
-					White
 				</Chip>
 			</div>
 		);
@@ -129,7 +116,7 @@ export const Disabled: Story = {
 	render: function Render() {
 		return (
 			<div className="grid grid-cols-3 gap-3 border py-4 px-4 w-[760px] border-neutral-300 rounded-md">
-				<Chip color="primary" isDisabled>
+				<Chip color="primary" disabled>
 					Primary
 				</Chip>
 				<Chip color="secondary">Secondary</Chip>

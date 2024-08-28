@@ -20,15 +20,15 @@ const ToggleClassProps = cva(
 				danger: "bg-danger-700 hover:bg-danger-800",
 				warning: "bg-warning-800 hover:bg-warning-900",
 			},
-			sizes: {
+			size: {
 				sm: "w-8 h-4",
 				md: "w-10 h-5",
-				lg: "w-14 h-7",
+				lg: "w-12 h-6",
 			},
 		},
 		defaultVariants: {
 			color: "secondary",
-			sizes: "sm",
+			size: "sm",
 		},
 	}
 );
@@ -39,7 +39,7 @@ export type ToggleProps = VariantProps<typeof ToggleClassProps> &
 export const Toggle = ({
 	id = "toggle",
 	color,
-	sizes = "md",
+	size = "md",
 	className,
 	disabled = false,
 	label,
@@ -48,7 +48,6 @@ export const Toggle = ({
 	required,
 	error,
 	touched,
-	isErrorText = true,
 	value,
 	onChange,
 	...props
@@ -70,13 +69,13 @@ export const Toggle = ({
 	const classSpan = twMerge(
 		"transition transform bg-white rounded-full",
 		clsx(
-			sizes === "sm" && "w-3 h-3",
-			sizes === "md" && "w-4 h-4 ",
-			sizes === "lg" && "w-[22px] h-[22px] ",
+			size === "sm" && "w-3 h-3",
+			size === "md" && "w-4 h-4 ",
+			size === "lg" && "w-5 h-5",
 
-			sizes === "sm" && valueCheck && "translate-x-4",
-			sizes === "md" && valueCheck && "translate-x-5",
-			sizes === "lg" && valueCheck && "translate-x-[30px]"
+			size === "sm" && valueCheck && "translate-x-4",
+			size === "md" && valueCheck && "translate-x-5",
+			size === "lg" && valueCheck && "translate-x-6"
 		)
 	);
 
@@ -88,10 +87,10 @@ export const Toggle = ({
 	);
 
 	const classText = clsx(
-		"text-neutral-700",
-		sizes === "sm" && "text-xs",
-		sizes === "md" && "text-sm",
-		sizes === "lg" && "text-base",
+		"text-text-800 leading-none",
+		size === "sm" && "text-xs",
+		size === "md" && "text-sm",
+		size === "lg" && "text-base",
 
 		required && "after:content-['*'] after:ml-1",
 		disabled ? "after:text-neutral-800" : "after:text-danger-700"
@@ -124,7 +123,7 @@ export const Toggle = ({
 					htmlFor={id}
 					className={cn(
 						ToggleClassProps({
-							sizes,
+							size,
 							color,
 						}),
 						classLabel
@@ -152,9 +151,7 @@ export const Toggle = ({
 				) : null}
 			</div>
 
-			{!disabled && error && touched && isErrorText && (
-				<LabelErrorForm text={error} />
-			)}
+			{!disabled && error && touched && <LabelErrorForm text={error} />}
 		</div>
 	);
 };

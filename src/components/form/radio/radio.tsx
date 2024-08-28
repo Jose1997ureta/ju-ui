@@ -32,7 +32,8 @@ export type RadioProps = VariantProps<typeof RadioClassProps> &
 	RadioComponentProps;
 
 export const Radio = ({
-	name = "radio",
+	id = "radio",
+	name,
 	color = "primary",
 	size = "md",
 	className,
@@ -55,7 +56,7 @@ export const Radio = ({
 	};
 
 	const classText = clsx(
-		"text-neutral-700 ",
+		"text-text-800 leading-none",
 		size === "sm" && "text-xs",
 		size === "md" && "text-sm",
 		size === "lg" && "text-sm"
@@ -93,6 +94,7 @@ export const Radio = ({
 
 				<div className="relative flex justify-center items-center">
 					<input
+						id={id}
 						type="radio"
 						name={name}
 						className={cn(
@@ -113,7 +115,7 @@ export const Radio = ({
 					<div>
 						{label ? <p className={classText}>{label}</p> : null}
 						{description ? (
-							<p className="text-xs text-text-800 ">{description}</p>
+							<p className="text-xs text-text-800">{description}</p>
 						) : null}
 					</div>
 				) : null}

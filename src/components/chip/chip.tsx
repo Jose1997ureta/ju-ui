@@ -1,28 +1,30 @@
 import { cn } from "@/functions";
-
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
 import { ChipComponentProps } from "./interface/chip.interface";
 
 const ChipClassProps = cva(["w-fit flex items-center text-white"], {
 	variants: {
-		// color: {
-		// 	primary: "bg-primary-100 text-primary-700",
-		// 	secondary: "bg-secondary-100 text-secondary-700",
-		// 	neutral: "bg-neutral-100 text-neutral-700",
-		// 	success: "bg-success-100 text-success-700",
-		// 	danger: "bg-danger-100 text-danger-700",
-		// 	warning: "bg-warning-100 text-warning-800",
-		// 	white: "bg-white text-text-800",
-		// 	default: "bg-neutral-300 text-text-800",
-		// },
+		color: {
+			primary: "",
+			secondary: "",
+			neutral: "",
+			success: "",
+			danger: "",
+			warning: "",
+			white: "",
+			default: "",
+		},
 		size: {
 			sm: "px-2 h-6 text-xs",
 			md: "px-2.5 h-7 text-xs",
 			lg: "px-3.5 h-8 text-sm",
 		},
-
+		variant: {
+			solid: "text-white",
+			outline: "border",
+			flat: "",
+		},
 		radius: {
 			sm: "rounded-sm",
 			md: "rounded-md",
@@ -30,9 +32,125 @@ const ChipClassProps = cva(["w-fit flex items-center text-white"], {
 			full: "rounded-full",
 		},
 	},
+	compoundVariants: [
+		/* PRIMARY */
+		{
+			color: "primary",
+			variant: "solid",
+			className: "bg-primary-700",
+		},
+		{
+			color: "primary",
+			variant: "outline",
+			className: "border-primary-700 text-primary-700",
+		},
+		{
+			color: "primary",
+			variant: "flat",
+			className: "bg-primary-100 text-primary-700",
+		},
+		/* SECONDARY */
+		{
+			color: "secondary",
+			variant: "solid",
+			className: "bg-secondary-700",
+		},
+		{
+			color: "secondary",
+			variant: "outline",
+			className: "border-secondary-700 text-secondary-700",
+		},
+		{
+			color: "secondary",
+			variant: "flat",
+			className: "bg-secondary-100 text-secondary-700",
+		},
+		/* NEUTRAL */
+		{
+			color: "neutral",
+			variant: "solid",
+			className: "bg-neutral-700",
+		},
+		{
+			color: "neutral",
+			variant: "outline",
+			className: "border-neutral-700 text-neutral-700",
+		},
+		{
+			color: "neutral",
+			variant: "flat",
+			className: "bg-neutral-300 text-neutral-700",
+		},
+		/* SUCCESS */
+		{
+			color: "success",
+			variant: "solid",
+			className: "bg-success-700",
+		},
+		{
+			color: "success",
+			variant: "outline",
+			className: "border-success-700 text-success-700",
+		},
+		{
+			color: "success",
+			variant: "flat",
+			className: "bg-success-100 text-success-700",
+		},
+		/* WARNING */
+		{
+			color: "warning",
+			variant: "solid",
+			className: "bg-warning-700",
+		},
+		{
+			color: "warning",
+			variant: "outline",
+			className: "border-warning-700 text-warning-700",
+		},
+		{
+			color: "warning",
+			variant: "flat",
+			className: "bg-warning-100 text-warning-700",
+		},
+		/* DANGER */
+		{
+			color: "danger",
+			variant: "solid",
+			className: "bg-danger-700",
+		},
+		{
+			color: "danger",
+			variant: "outline",
+			className: "border-danger-700 text-danger-700",
+		},
+		{
+			color: "danger",
+			variant: "flat",
+			className: "bg-danger-100 text-danger-700",
+		},
+		/* WHITE */
+		{
+			color: "white",
+			variant: "solid",
+			className: "border border-neutral-300 text-text-800",
+		},
+		{
+			color: "white",
+			variant: "outline",
+			className: "border-neutral-300 text-text-800",
+		},
+		{
+			color: "white",
+			variant: "flat",
+			className: "border border-neutral-300 text-text-800",
+		},
+	],
 	defaultVariants: {
 		size: "sm",
-		radius: "sm",
+		radius: "full",
+		color: "primary",
+		variant: "solid",
 	},
 });
 
@@ -42,66 +160,26 @@ export type ChipProps = VariantProps<typeof ChipClassProps> &
 export const Chip = ({
 	children,
 	className,
-	color = "neutral",
-	isDisabled = false,
+	color = "primary",
+	disabled = false,
 	radius = "full",
 	size = "sm",
 	variant = "solid",
 	onClick,
 }: ChipProps) => {
-	const disabledClassName = clsx(isDisabled && "opacity-50");
-
-	const colorClassName = twMerge(
-		clsx(
-			variant === "solid" && "text-white",
-			color === "primary"
-				? variant === "solid"
-					? "bg-primary-700"
-					: "bg-primary-100 text-primary-700"
-				: "",
-			color === "secondary"
-				? variant === "solid"
-					? "bg-secondary-700"
-					: "bg-secondary-100 text-secondary-700"
-				: "",
-			color === "neutral"
-				? variant === "solid"
-					? "bg-neutral-700"
-					: "bg-neutral-300 text-text-800"
-				: "",
-			color === "success"
-				? variant === "solid"
-					? "bg-success-700"
-					: "bg-success-100 text-success-700"
-				: "",
-			color === "warning"
-				? variant === "solid"
-					? "bg-warning-700"
-					: "bg-warning-100 text-warning-800"
-				: "",
-			color === "danger"
-				? variant === "solid"
-					? "bg-danger-700"
-					: "bg-danger-100 text-danger-700"
-				: "",
-			color === "white"
-				? variant === "solid"
-					? "bg-white text-text-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1)]"
-					: "bg-white text-text-800 border-neutral-100 border"
-				: ""
-		)
-	);
+	const disabledClassName = clsx(disabled && "opacity-50");
 
 	return (
 		<div
 			className={cn(
 				ChipClassProps({
+					color,
 					size,
 					radius,
+					variant,
 					className,
 				}),
-				disabledClassName,
-				colorClassName
+				disabledClassName
 			)}
 			onClick={onClick}
 		>
