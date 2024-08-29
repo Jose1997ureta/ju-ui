@@ -7,6 +7,7 @@ const initialValues: AccordionShareProps = {
 	variant: "splitted",
 	multiple: false,
 	color: "default",
+	radius: "md",
 };
 
 export const AccordionContext =

@@ -10,19 +10,35 @@ export const AccordionHeader = ({
 	className,
 	children,
 }: AccordionHeaderProps) => {
-	const { color } = useAccodionContext();
+	const { color, radius } = useAccodionContext();
 
 	const colorClass = clsx({
-		"bg-primary-100": color === "primary",
-		"bg-secondary-100": color === "secondary",
+		"bg-primary-50": color === "primary",
+		"bg-secondary-50": color === "secondary",
 		"bg-neutral-100": color === "default",
+	});
+
+	const radiusTopClass = clsx({
+		"rounded-t-sm": radius === "xs",
+		"rounded-t": radius === "sm",
+		"rounded-t-md": radius === "md",
+		"rounded-t-lg": radius === "lg",
+	});
+
+	const radiusBottomClass = clsx({
+		"rounded-b-sm": radius === "xs" && !active,
+		"rounded-b": radius === "sm" && !active,
+		"rounded-b-md": radius === "md" && !active,
+		"rounded-b-lg": radius === "lg" && !active,
 	});
 
 	return (
 		<div
 			className={twMerge(
-				"flex items-center justify-between gap-x-2 px-3 py-3 cursor-pointer ",
+				"flex items-center justify-between gap-x-2 px-3 py-3 cursor-pointer",
 				colorClass,
+				radiusTopClass,
+				clsx(!active ? radiusBottomClass : ""),
 				className
 			)}
 		>

@@ -1,5 +1,9 @@
 import { ReactNode } from "react";
-import { ColorProps, ExcludeType } from "../../../interfaces/general.interface";
+import {
+	ColorProps,
+	ExcludeType,
+	SizeProps,
+} from "../../../interfaces/general.interface";
 
 export interface AccordionShareProps {
 	activeKeys?: string[];
@@ -9,6 +13,7 @@ export interface AccordionShareProps {
 	color?:
 		| ExcludeType<ColorProps, "neutral" | "success" | "warning" | "danger">
 		| "default";
+	radius?: SizeProps;
 }
 
 export interface AccordionProps extends AccordionShareProps {

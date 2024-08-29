@@ -22,6 +22,7 @@ export const AccordionHOC = ({
 		multiple = false,
 		variant = "splitted",
 		color = "default",
+		radius = "md",
 	} = props;
 
 	const variantClass = clsx("w-full grid grid-cols-1 gap-y-1", {
@@ -30,7 +31,7 @@ export const AccordionHOC = ({
 
 	return (
 		<AccordionContext.Provider
-			value={{ variant, color, disabledKeys, activeKeys, multiple }}
+			value={{ variant, color, disabledKeys, activeKeys, multiple, radius }}
 		>
 			<div className={twMerge(variantClass, className)}>
 				{typeof children === "function"

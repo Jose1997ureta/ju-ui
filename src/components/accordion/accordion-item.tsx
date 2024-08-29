@@ -24,7 +24,21 @@ export const AccordionItem = ({
 	onClick,
 	className = initialClass,
 }: AccordionItemProps) => {
-	const { disabledKeys, activeKeys, multiple, color } = useAccodionContext();
+	const { disabledKeys, activeKeys, multiple, color, radius } =
+		useAccodionContext();
+
+	const borderClass = clsx({
+		"border-primary-500": color === "primary",
+		"border-secondary-500": color === "secondary",
+		"border-neutral-200": color === "default",
+	});
+
+	const radiusClass = clsx({
+		"rounded-sm": radius === "xs",
+		rounded: radius === "sm",
+		"rounded-md": radius === "md",
+		"rounded-lg": radius === "lg",
+	});
 
 	const isDisabled = useMemo(() => {
 		if (Array.isArray(disabledKeys))
@@ -37,12 +51,6 @@ export const AccordionItem = ({
 		if (!activeKeys) return false;
 		return activeKeys.some((el) => el === keyCurrent);
 	}, [activeKeys, keyCurrent]);
-
-	const borderClass = clsx({
-		"border-primary-500": color === "primary",
-		"border-secondary-500": color === "secondary",
-		"border-neutral-200": color === "default",
-	});
 
 	const handleClick = () => {
 		if (isDisabled) return;
@@ -65,8 +73,9 @@ export const AccordionItem = ({
 		<div
 			onClick={handleClick}
 			className={twMerge(
-				"rounded-md border bg-white overflow-hidden",
+				"border bg-white ",
 				borderClass,
+				radiusClass,
 				className.item
 			)}
 		>
