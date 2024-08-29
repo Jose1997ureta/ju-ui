@@ -17,27 +17,23 @@ export interface AccordionProps extends AccordionShareProps {
 	className?: string;
 }
 
+export interface AccordionItemClassNameProps {
+	item?: string;
+	header?: string;
+	body?: string;
+}
+
 export interface AccordionItemProps {
 	children: React.ReactNode;
 	keyCurrent: string;
 	onClick?: (key: string[]) => void;
-	className?: string;
-
 	title?: string;
-	classNameHeader?: string;
 	contentHeader?: ReactNode;
-
-	classNameContent?: string;
+	className?: AccordionItemClassNameProps;
 }
 
 export interface AccordionHOCContainerProps {
-	({
-		children,
-		className,
-		data,
-		variant,
-		...props
-	}: AccordionProps): JSX.Element;
+	({ children, className, data, ...props }: AccordionProps): JSX.Element;
 
 	Item: ({
 		children,

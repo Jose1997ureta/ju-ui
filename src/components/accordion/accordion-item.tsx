@@ -5,18 +5,24 @@ import clsx from "clsx";
 import { useMemo } from "react";
 import { AccordionHeader } from "./accordion-header";
 import { AccordionBody } from "./accordion.body";
-import { AccordionItemProps } from "./interface/accordion.interface";
+import {
+	AccordionItemClassNameProps,
+	AccordionItemProps,
+} from "./interface/accordion.interface";
+
+const initialClass: AccordionItemClassNameProps = {
+	item: "",
+	header: "",
+	body: "",
+};
 
 export const AccordionItem = ({
 	children,
-	classNameHeader,
 	contentHeader,
 	title,
 	keyCurrent,
-	className,
-	classNameContent,
-
 	onClick,
+	className = initialClass,
 }: AccordionItemProps) => {
 	const { disabledKeys, activeKeys, multiple, color } = useAccodionContext();
 
@@ -61,18 +67,18 @@ export const AccordionItem = ({
 			className={twMerge(
 				"rounded-md border bg-white overflow-hidden",
 				borderClass,
-				className
+				className.item
 			)}
 		>
 			<AccordionHeader
-				className={classNameHeader}
+				className={className.header}
 				title={title}
 				active={active}
 			>
 				{contentHeader}
 			</AccordionHeader>
 
-			<AccordionBody className={classNameContent} active={active}>
+			<AccordionBody className={className.body} active={active}>
 				{children}
 			</AccordionBody>
 		</div>

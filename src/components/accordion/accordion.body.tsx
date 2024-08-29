@@ -16,7 +16,7 @@ export const AccordionBody = ({
 					: "grid-rows-[0fr] opacity-0"
 			)}
 		>
-			<div className={twMerge("overflow-hidden", className)}>{children}</div>
+			{children}
 		</div>
 	);
 };

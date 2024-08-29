@@ -48,17 +48,21 @@ export const Default: Story = {
 
 		return (
 			<div className="border w-[400px] p-4">
-				<Accordion data={data} activeKeys={show1} multiple>
+				<Accordion data={data} activeKeys={show1}>
 					{({ item }) => (
 						<Accordion.Item
 							keyCurrent={item.id}
 							onClick={handleClick}
 							title={item.name}
+							className={{
+								item: "border-success-700",
+								header: "bg-success-100",
+							}}
 						>
 							{item.id === "hola1" ? (
 								<p>
-									Es un hecho establecido hace demasiado tiempo que un
-									lector se distraerá con el contenido del texto de un
+									Es un hecho establecido hace demasiado tiempo que un lector se
+									distraerá con el contenido del texto de un
 								</p>
 							) : null}
 

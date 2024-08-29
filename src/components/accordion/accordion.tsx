@@ -41,8 +41,7 @@ export const AccordionHOC = ({
 										child as ReactElement<AccordionShareProps>,
 										{
 											key: index,
-
-											...props,
+											// ...props,
 										}
 									)
 								: null;
@@ -50,10 +49,10 @@ export const AccordionHOC = ({
 					: React.Children.map(children, (child) =>
 							isValidElement(child)
 								? React.cloneElement(
-										child as ReactElement<AccordionShareProps>,
-										{
-											...props,
-										}
+										child as ReactElement<AccordionShareProps>
+										// {
+										// 	...props,
+										// }
 									)
 								: child
 						)}
