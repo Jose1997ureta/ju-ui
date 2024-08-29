@@ -6,9 +6,9 @@ import React, { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import { AvatarComponentProps } from "./interface/avatar.interface";
 
-const AvatarClassProps = cva([], {
+const AvatarClassProps = cva(["bg-neutral-300"], {
 	variants: {
-		borderColor: {
+		border: {
 			primary: "ring-primary-700",
 			secondary: "ring-secondary-700",
 			neutral: "ring-neutral-700",
@@ -38,52 +38,36 @@ export type AvatarProps = VariantProps<typeof AvatarClassProps> &
 export const Avatar = ({
 	className,
 	classNameContainer,
-	borderColor = "default",
 	content,
-	isBorder = false,
-	isDisabled = false,
+	border,
+	disabled = false,
 	name,
 	radius = "full",
 	size = "md",
 	src,
-	status = "active",
-	isStatus = false,
-	bg,
+	status,
 	onClick,
 }: AvatarProps) => {
-	const srcCustom = useMemo(() => {
-		if (!src) return null;
-
-		return (
-			<img
-				src={src}
-				alt=""
-				className={cn(
-					AvatarClassProps({
-						radius,
-					}),
-					"object-cover w-full h-full"
-				)}
-			/>
-		);
-	}, [radius, src]);
-
-	const contentCustom = useMemo(() => {
-		if (src) return null;
-
-		return content;
-	}, [content, src]);
-
-	const nameCustom = useMemo(() => {
-		if (src || content) return null;
-
+	const bodyAvatar = useMemo(() => {
+		if (src) {
+			return (
+				<img
+					src={src}
+					alt=""
+					className={cn(
+						AvatarClassProps({
+							radius,
+						}),
+						"object-cover w-full h-full"
+					)}
+				/>
+			);
+		}
+		if (content) return content;
 		if (name) {
 			let valueSize = "text-xs";
 
 			switch (size) {
-				case "xs":
-				case "sm":
-					break;
 				case "md":
 					valueSize = "text-md";
 					break;
@@ -94,66 +78,32 @@ export const Avatar = ({
 
 			return <span className={`${valueSize}`}>{name}</span>;
 		}
-	}, [content, name, size, src]);
+	}, [content, name, radius, size, src]);
 
 	const childrenCustom = useMemo(() => {
-		const colorText = bg ? "text-white" : "text-text-900";
+		const avatarClasses = AvatarClassProps({
+			size,
+			radius,
+		});
 
-		const border = isBorder && "ring ring-2";
-
-		let backgroundColor = bg || "bg-neutral-300";
-
-		if (src) {
-			switch (borderColor) {
-				case "primary":
-				case "secondary":
-				case "neutral":
-				case "success":
-				case "warning":
-				case "danger":
-					backgroundColor = `bg-white`;
-					break;
-				case "default":
-					backgroundColor = "bg-neutral-300";
-					break;
-			}
-		}
+		const borderClasses = border
+			? `ring ring-2 ${AvatarClassProps({ border })}`
+			: "";
 
 		return (
 			<div
 				className={cn(
-					"flex justify-center items-center overflow-hidden bg-white",
-					border,
-					colorText,
-					backgroundColor,
-					AvatarClassProps({
-						size,
-						className,
-						radius,
-					}),
-					isBorder &&
-						AvatarClassProps({
-							borderColor,
-						})
+					"cursor-pointer flex justify-center items-center overflow-hidden bg-white",
+					avatarClasses,
+					borderClasses,
+					className,
+					disabled ? "cursor-not-allowed" : "cursor-pointer"
 				)}
 			>
-				{srcCustom}
-				{contentCustom}
-				{nameCustom}
+				{bodyAvatar}
 			</div>
 		);
-	}, [
-		bg,
-		borderColor,
-		className,
-		isBorder,
-		radius,
-		size,
-		src,
-		nameCustom,
-		contentCustom,
-		srcCustom,
-	]);
+	}, [bodyAvatar, border, className, disabled, radius, size]);
 
 	const statusClass = clsx(
 		size === "xs" && "-bottom-[5%] -right-[5%] w-2.5 h-2.5 border",
@@ -167,7 +117,7 @@ export const Avatar = ({
 	);
 
 	const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (isDisabled) return;
+		if (disabled) return;
 		onClick && onClick(e);
 	};
 
@@ -175,14 +125,14 @@ export const Avatar = ({
 		<div
 			className={twMerge(
 				"w-fit relative",
-				clsx(isDisabled && "opacity-50"),
+				clsx(disabled && "opacity-50"),
 				classNameContainer
 			)}
 			onClick={handleClick}
 		>
 			{childrenCustom}
 
-			{isStatus ? (
+			{status ? (
 				<div
 					className={twMerge(
 						"absolute bg-success-700 rounded-full border-white",

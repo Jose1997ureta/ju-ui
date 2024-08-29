@@ -10,7 +10,7 @@ export const AvatarGroup = ({
 	const avatars = React.Children.toArray(children).slice(0, max);
 
 	return (
-		<div className="flex items-center avatar-group -space-x-2">
+		<div className="flex items-center -space-x-2">
 			{avatars.map((avatar, index) => (
 				<div
 					key={index}
