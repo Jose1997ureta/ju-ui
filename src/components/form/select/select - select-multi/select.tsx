@@ -48,7 +48,7 @@ export const Select = forwardRef(
 			isPortal = false,
 			menuIsOpen,
 			isClearable = true,
-			pattern = "all",
+			pattern = "",
 		}: SelectProps,
 		ref: any
 	) => {
@@ -71,9 +71,7 @@ export const Select = forwardRef(
 
 					filter = dataV;
 				} else {
-					filter = data.find(
-						(el) => el.id.toString() === value.toString()
-					);
+					filter = data.find((el) => el.id.toString() === value.toString());
 					if (filter === undefined) filter = null;
 				}
 			}
@@ -95,9 +93,7 @@ export const Select = forwardRef(
 			} else if (h.action === "select-option") {
 				if (Array.isArray(itemAll) && isMulti) {
 					if (isItemAll === "only") {
-						const existAll = itemAll.some(
-							(el) => el.id.toString() === "0"
-						);
+						const existAll = itemAll.some((el) => el.id.toString() === "0");
 
 						if (existAll)
 							itemAll = itemAll.filter((el) => el.id.toString() !== "0");
@@ -108,11 +104,8 @@ export const Select = forwardRef(
 						if (h.option && h.option.id.toString() === "0")
 							itemAll = data as any[];
 						else {
-							const result = data.filter(
-								(el) => el.id.toString() !== "0"
-							);
-							if (itemAll.length === result.length)
-								itemAll = data as any[];
+							const result = data.filter((el) => el.id.toString() !== "0");
+							if (itemAll.length === result.length) itemAll = data as any[];
 						}
 					}
 
@@ -129,8 +122,7 @@ export const Select = forwardRef(
 			) {
 				/* Estos eventos solo orucren cuando el select es multiple */
 				if (isItemAll === "all") {
-					item =
-						h.action === "deselect-option" ? h.option : h.removedValue;
+					item = h.action === "deselect-option" ? h.option : h.removedValue;
 					if (item.id.toString() === "0") itemAll = [];
 					else itemAll = itemAll.filter((el) => el.id.toString() !== "0");
 				}

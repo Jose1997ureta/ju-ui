@@ -108,10 +108,7 @@ export const Default: Story = {
 
 		const indexOfLastElement = page * limit;
 		const indexOfFirstElement = indexOfLastElement - limit;
-		const currentElements = data.slice(
-			indexOfFirstElement,
-			indexOfLastElement
-		);
+		const currentElements = data.slice(indexOfFirstElement, indexOfLastElement);
 
 		return (
 			<div className="border p-4" style={{ width: 900 }}>
@@ -130,14 +127,10 @@ export const Default: Story = {
 							{({ item }) => (
 								<Table.HeaderColumn
 									text={item.name}
-									color={
-										item.id === "married" ? "secondary" : "primary"
-									}
+									color={item.id === "married" ? "secondary" : "primary"}
 									icon={<IoSearchOutline className="h-4 w-4" />}
 									className={
-										item.id === "email"
-											? "w-[250px] min-w-[250px]"
-											: ""
+										item.id === "email" ? "w-[250px] min-w-[250px]" : ""
 									}
 								/>
 							)}
@@ -148,22 +141,16 @@ export const Default: Story = {
 								<Table.SearchColumn className="w-[100px] min-w-[100px]">
 									<Input
 										value={valueSearch[item.id] || ""}
-										sizes="sm"
+										size="sm"
 										onChange={(e) =>
-											handleChangeInput(
-												item.id.toString(),
-												e.target.value
-											)
+											handleChangeInput(item.id.toString(), e.target.value)
 										}
 										endContent={
 											valueSearch[item.id.toString()] ? (
 												<IoCloseSharp
 													className="cursor-pointer"
 													onClick={() =>
-														handleChangeInput(
-															item.id.toString(),
-															""
-														)
+														handleChangeInput(item.id.toString(), "")
 													}
 												/>
 											) : null
@@ -190,7 +177,7 @@ export const Default: Story = {
 											value={item.married}
 											onChange={() => alert()}
 											color="secondary"
-											sizes="sm"
+											size="sm"
 										/>
 									</div>
 								</Table.BodyColumn>

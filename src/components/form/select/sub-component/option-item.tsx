@@ -21,7 +21,7 @@ export const CustomOption = (props: OptionProps<any>) => {
 						onChange={handleChange}
 						value={isSelected}
 						color={color}
-						sizes="sm"
+						size="sm"
 					/>
 					<p className="text-sm">{label}</p>
 				</div>

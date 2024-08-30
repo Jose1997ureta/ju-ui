@@ -54,7 +54,7 @@ export const Autocomplete = forwardRef(
 			isPortal = false,
 			menuIsOpen,
 			isClearable = true,
-			pattern = "all",
+			pattern = "",
 		}: AutoCompleteProps,
 		ref: any
 	) => {
@@ -111,9 +111,7 @@ export const Autocomplete = forwardRef(
 			} else if (h.action === "select-option") {
 				if (Array.isArray(itemAll) && isMulti) {
 					if (isItemAll === "only") {
-						const existAll = itemAll.some(
-							(el) => el.id.toString() === "0"
-						);
+						const existAll = itemAll.some((el) => el.id.toString() === "0");
 
 						if (existAll)
 							itemAll = itemAll.filter((el) => el.id.toString() !== "0");
@@ -127,8 +125,7 @@ export const Autocomplete = forwardRef(
 							const result = dataOptionsAll.filter(
 								(el) => el.id.toString() !== "0"
 							);
-							if (itemAll.length === result.length)
-								itemAll = dataOptionsAll;
+							if (itemAll.length === result.length) itemAll = dataOptionsAll;
 						}
 					}
 
@@ -154,8 +151,7 @@ export const Autocomplete = forwardRef(
 			) {
 				/* Estos eventos solo orucren cuando el select es multiple */
 				if (isItemAll === "all") {
-					item =
-						h.action === "deselect-option" ? h.option : h.removedValue;
+					item = h.action === "deselect-option" ? h.option : h.removedValue;
 					if (item.id.toString() === "0") itemAll = [];
 					else itemAll = itemAll.filter((el) => el.id.toString() !== "0");
 				}
