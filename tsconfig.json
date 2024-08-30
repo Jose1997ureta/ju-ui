@@ -25,12 +25,8 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 
-		// "declaration": true,
-		// "emitDeclarationOnly": true,
-		// "outDir": "./dist",
-
 		"typeRoots": ["./dist/ju-ui.d.ts"]
 	},
-	"include": ["src/**/*"],
+	"include": ["src"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
