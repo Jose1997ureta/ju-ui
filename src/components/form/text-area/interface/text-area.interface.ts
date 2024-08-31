@@ -32,7 +32,7 @@ export type TextAreaComponentProps = {
 	 * @value
 	 * El campo es requerido
 	 */
-	value: string;
+	value?: string;
 	/**
 	 * @description
 	 * Propiedad para colocar el tamaño del textarea.

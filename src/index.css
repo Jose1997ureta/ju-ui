@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-	--colors-white: #fff;
+	/* --colors-white: #fff;
 	--colors-primary-50: #ebf3ff;
 	--colors-primary-100: #d4e3ff;
 	--colors-primary-500: #b1d4fe;
@@ -51,10 +51,10 @@
 	--shadow-inputBase: inset 0 0 0 0.3px var(--colors-primary-700),
 		0 0 0 4px var(--colors-primary-100);
 	--shadow-inputError: inset 0 0 0 0.3px var(--colors-danger-700),
-		0 0 0 4px var(--colors-danger-100);
+		0 0 0 4px var(--colors-danger-100); */
 
-	/* --shadow-inputBase: inset 0 0 0 0.3px #0048d0, 0 0 0 4px #d4e3ff;
-	--shadow-inputError: inset 0 0 0 0.3px #e02d3c, 0 0 0 4px #ffe9eb; */
+	--shadow-inputBase: inset 0 0 0 0.3px #0048d0, 0 0 0 4px #d4e3ff;
+	--shadow-inputError: inset 0 0 0 0.3px #e02d3c, 0 0 0 4px #ffe9eb;
 }
 
 html,
