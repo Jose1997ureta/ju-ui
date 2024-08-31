@@ -190,7 +190,6 @@ export const WithLabel: Story = {
 				<FormItem>
 					<FormItem.Label label="Nombre" size="md" />
 					<FormItem.Input
-						value=""
 						id="d"
 						placeholder="Ingresar tu nombre"
 						startContent={<AiOutlineUser />}

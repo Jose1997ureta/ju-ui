@@ -70,7 +70,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 				"text-danger-700": !disabled && error && touched,
 				"opacity-50": disabled,
 				"top-1.5 text-sm": size === "sm",
-				"top-3": size === "md" || size === "lg",
+				"top-2.5": size === "md" || size === "lg",
 			}
 		);
 
@@ -117,7 +117,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 				{isErrorText || isLabelCounter ? (
 					<div
 						className={clsx(
-							"flex mt-1",
+							"flex mt-1.5",
 							isErrorLabel
 								? "justify-between items-center gap-3"
 								: "justify-end"

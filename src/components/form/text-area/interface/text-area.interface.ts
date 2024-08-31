@@ -3,6 +3,18 @@ import { ExcludeType, PatternInputProps, SizeProps } from "@/interfaces";
 export type TextAreaComponentProps = {
 	/**
 	 * @description
+	 * Propiedad para colocar un identificador para html.
+	 * @type
+	 * Puede recibir **string** | **undefined**
+	 */
+	id?: string;
+	/**
+	 * @description
+	 * Propiedad para ingresar un nombre de identifacion
+	 */
+	name?: string;
+	/**
+	 * @description
 	 * Propiedad para brindar clases personalizadas al componente, este se situa en el mismo textarea.
 	 */
 	className?: string;

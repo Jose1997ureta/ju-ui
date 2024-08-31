@@ -115,7 +115,7 @@ export type InputComponentProps = {
 	 * @description
 	 * Propiedad para ingresar valores en el input
 	 * @value
-	 * El campo es requerido
+	 * El campo no es requerido
 	 */
-	value: string;
+	value?: string;
 };

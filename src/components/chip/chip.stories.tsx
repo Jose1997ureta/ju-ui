@@ -20,7 +20,7 @@ export const Color: Story = {
 	render: function Render() {
 		return (
 			<div className="grid grid-cols-3 gap-3 border py-4 px-4 w-[760px] border-neutral-300 rounded-md">
-				<Chip variant="flat" color="primary">
+				<Chip variant="flat" color="primary" >
 					Primary
 				</Chip>
 				<Chip variant="flat" color="secondary">
