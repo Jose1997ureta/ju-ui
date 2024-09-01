@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 
 import { Accordion } from "./accordion";
 import { useState } from "react";
+import { AccordionItemOnClick } from "./interface/accordion.interface";
 
 const meta: Meta<typeof Accordion> = {
 	title: "Components/Accordion",
@@ -38,20 +39,31 @@ export const Default: Story = {
 		const [text, setText] = useState<string>("");
 		const [loading, setloading] = useState<boolean>(false);
 
-		const handleClick = (key: string[]) => {
-			setloading(true);
-			setShow1(key);
-			setText(
-				`Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).`
-			);
-			setTimeout(() => {
-				setloading(false);
-			}, 2000);
+		const handleClick = ({ keys, key, state }: AccordionItemOnClick) => {
+			setShow1(keys);
+
+			if (state === "close") return;
+
+			if (key === "hola2") {
+				setloading(true);
+				setText(
+					`Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).`
+				);
+				setTimeout(() => {
+					setloading(false);
+				}, 2000);
+			}
 		};
 
 		return (
 			<div className="border w-[400px] p-4">
-				<Accordion data={data} activeKeys={show1} radius="lg" color="secondary">
+				<Accordion
+					data={data}
+					activeKeys={show1}
+					radius="lg"
+					color="secondary"
+					multiple
+				>
 					{({ item }) => (
 						<Accordion.Item
 							keyCurrent={item.id}

@@ -8,6 +8,7 @@ import { AccordionBody } from "./accordion.body";
 import {
 	AccordionItemClassNameProps,
 	AccordionItemProps,
+	AccordionStatusProps,
 } from "./interface/accordion.interface";
 
 const initialClass: AccordionItemClassNameProps = {
@@ -53,20 +54,23 @@ export const AccordionItem = ({
 	}, [activeKeys, keyCurrent]);
 
 	const handleClick = () => {
+		let state = "open" as AccordionStatusProps;
+
 		if (isDisabled) return;
 
 		if (!activeKeys) return;
 
-		let resultKeys = [...activeKeys] as string[];
+		let resultKeys = [...activeKeys];
 
 		if (activeKeys.includes(keyCurrent)) {
 			resultKeys = activeKeys.filter((el) => el !== keyCurrent);
+			state = "close";
 		} else {
 			if (multiple) resultKeys.push(keyCurrent);
 			else resultKeys = [keyCurrent];
 		}
 
-		onClick && onClick(resultKeys);
+		onClick && onClick({ keys: resultKeys, key: keyCurrent, state });
 	};
 
 	return (

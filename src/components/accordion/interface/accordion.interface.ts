@@ -16,6 +16,8 @@ export interface AccordionShareProps {
 	radius?: SizeProps;
 }
 
+export type AccordionStatusProps = "open" | "close";
+
 export interface AccordionProps extends AccordionShareProps {
 	data?: any[];
 	children: (({ item }: { item: any }) => ReactNode) | ReactNode;
@@ -28,10 +30,16 @@ export interface AccordionItemClassNameProps {
 	body?: string;
 }
 
+export interface AccordionItemOnClick {
+	keys: string[];
+	key: string;
+	state: AccordionStatusProps;
+}
+
 export interface AccordionItemProps {
 	children: React.ReactNode;
 	keyCurrent: string;
-	onClick?: (key: string[]) => void;
+	onClick?: ({ keys, key, state }: AccordionItemOnClick) => void;
 	title?: string;
 	contentHeader?: ReactNode;
 	className?: AccordionItemClassNameProps;
