@@ -70,7 +70,7 @@ export const AccordionItem = ({
 			else resultKeys = [keyCurrent];
 		}
 
-		onClick && onClick({ keys: resultKeys, key: keyCurrent, state });
+		onClick && onClick({ items: resultKeys, item: keyCurrent, state });
 	};
 
 	return (

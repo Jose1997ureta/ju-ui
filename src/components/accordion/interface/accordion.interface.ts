@@ -4,7 +4,7 @@ import {
 	ExcludeType,
 	SizeProps,
 } from "../../../interfaces/general.interface";
-import { AccordionStatusProps } from "./accordion-shared.interface";
+import { AccordionItemOnClick } from "./accordion-shared.interface";
 
 export interface AccordionShareProps {
 	activeKeys?: string[];
@@ -29,16 +29,10 @@ export interface AccordionItemClassNameProps {
 	body?: string;
 }
 
-export interface AccordionItemOnClick {
-	keys: string[];
-	key: string;
-	state: AccordionStatusProps;
-}
-
 export interface AccordionItemProps {
 	children: React.ReactNode;
 	keyCurrent: string;
-	onClick?: ({ keys, key, state }: AccordionItemOnClick) => void;
+	onClick?: ({ item, items, state }: AccordionItemOnClick) => void;
 	title?: string;
 	contentHeader?: ReactNode;
 	className?: AccordionItemClassNameProps;
