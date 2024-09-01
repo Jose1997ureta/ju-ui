@@ -8,8 +8,8 @@ import { AccordionBody } from "./accordion.body";
 import {
 	AccordionItemClassNameProps,
 	AccordionItemProps,
-	AccordionStatusProps,
 } from "./interface/accordion.interface";
+import { AccordionStatusProps } from "./interface/accordion-shared.interface";
 
 const initialClass: AccordionItemClassNameProps = {
 	item: "",

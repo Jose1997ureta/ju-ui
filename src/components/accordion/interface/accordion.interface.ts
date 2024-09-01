@@ -4,6 +4,7 @@ import {
 	ExcludeType,
 	SizeProps,
 } from "../../../interfaces/general.interface";
+import { AccordionStatusProps } from "./accordion-shared.interface";
 
 export interface AccordionShareProps {
 	activeKeys?: string[];
@@ -15,8 +16,6 @@ export interface AccordionShareProps {
 		| "default";
 	radius?: SizeProps;
 }
-
-export type AccordionStatusProps = "open" | "close";
 
 export interface AccordionProps extends AccordionShareProps {
 	data?: any[];
