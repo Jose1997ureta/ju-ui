@@ -127,7 +127,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 							<LabelErrorForm text={error} className="mt-0" />
 						) : null}
 
-						{isLabelCounter && maxLength && maxLength > 0 ? (
+						{isLabelCounter && Number(maxLength || 0) > 0 ? (
 							<p className="text-[10px] font-thin text-text-800 text-nowrap leading-none">
 								{`${value.length} / ${maxLength}`}
 							</p>
