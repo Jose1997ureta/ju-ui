@@ -8,8 +8,6 @@ import { ConfirmationBody } from "./components/confirmation-body";
 import { ConfirmationFooter } from "./components/confirmation-footer";
 import { ConfirmationProps } from "./interface/confirmation.interface";
 
-import "./styles/confirmation.css";
-
 export const Confirmation = ({
 	children,
 	show,
