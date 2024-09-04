@@ -52,7 +52,7 @@ export const ConfirmationFooter = ({
 							loading={option.cancel.loading}
 							disabled={option.cancel.loading}
 							onClick={option.cancel.onCancel}
-							className="w-full sm:w-fit max-sm:justify-center"
+							className="w-full sm:!w-fit max-sm:justify-center"
 						>
 							{option.cancel.text}
 						</Button>
@@ -64,7 +64,7 @@ export const ConfirmationFooter = ({
 							loading={option.accept.loading}
 							disabled={option.accept.loading}
 							onClick={option.accept.onAccept}
-							className="w-full sm:w-fit max-sm:justify-center"
+							className="w-full sm:!w-fit max-sm:justify-center"
 						>
 							{option.accept.text}
 						</Button>
