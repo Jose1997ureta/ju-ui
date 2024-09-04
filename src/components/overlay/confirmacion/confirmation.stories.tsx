@@ -32,7 +32,6 @@ export const Default: Story = {
 
 				<Confirmation show={show}>
 					<Confirmation.Header
-						// title="¿Está seguro de realizar estos cambios?"
 						title="¿Está seguro que desea cerrar sesión de todos los usuarios seleccionados?"
 						icon={
 							<ButtonIcon

@@ -15,8 +15,8 @@ export const Confirmation = ({
 	className,
 	classNameContainer,
 }: ConfirmationProps) => {
-	// const root = document.getElementById("root");
-	const root = document.getElementById("storybook-root");
+	const root = document.getElementById("root");
+	// const root = document.getElementById("storybook-root");
 
 	return (
 		root &&

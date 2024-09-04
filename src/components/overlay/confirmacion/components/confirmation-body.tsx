@@ -17,8 +17,8 @@ export const ConfirmationBody = ({
 			className={twMerge(
 				"max-h-52 overflow-y-auto",
 				clsx(
-					isClose ? "sm:!mr-[44px] mr-4" : "mr-4",
-					isIcon ? "sm:!ml-[68px] ml-4" : "ml-4"
+					isClose ? "sm:!mr-[48px] mr-5" : "mr-5",
+					isIcon ? "sm:!ml-[72px] ml-5" : "ml-5"
 				),
 				className
 			)}
@@ -26,9 +26,7 @@ export const ConfirmationBody = ({
 			{children || (
 				<>
 					{text ? (
-						<p className="text-sm !leading-[18px] text-text-800">
-							{text}
-						</p>
+						<p className="text-sm !leading-[18px] text-text-800">{text}</p>
 					) : null}
 
 					{data.length > 0 ? (
@@ -46,23 +44,3 @@ export const ConfirmationBody = ({
 		</div>
 	);
 };
-
-// interface ConfirmationBodyDescriptionProps {
-// 	text: string;
-// 	className?: string;
-// }
-
-// export const ConfirmationBodyDescription = ({
-// 	text,
-// 	className,
-// }: ConfirmationBodyDescriptionProps) => {
-// 	return (
-// 		<p
-// 			className={twMerge("text-sm !leading-[18px] text-text-800", className)}
-// 		>
-// 			{text}
-// 		</p>
-// 	);
-// };
-
-// ConfirmationBody.Desciption = ConfirmationBodyDescription;
