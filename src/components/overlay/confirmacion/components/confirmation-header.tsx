@@ -31,7 +31,7 @@ export const ConfirmartionHeader = ({
 						<ButtonIcon
 							onClick={handleClose}
 							size="md"
-							className="max:sm:absolute sm:relative max:sm:right-3 max:sm:top-3 sm:right-auto sm:top-auto"
+							className="max-sm:absolute sm:relative max:sm:right-3 max:sm:top-3 sm:right-auto sm:top-auto"
 							variant="flat"
 						>
 							<IoCloseSharp />
