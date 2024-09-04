@@ -42,9 +42,9 @@ export const ConfirmationFooter = ({
 	};
 
 	return (
-		<div className={twMerge("p-4 sm:!pt-3", className)}>
+		<div className={twMerge("p-4 sm:pt-3", className)}>
 			{children || (
-				<div className="flex flex-col sm:!flex-row sm:!items-center sm:!justify-end gap-2">
+				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-2">
 					{option.cancel.show ? (
 						<Button
 							color={option.cancel.color}
@@ -52,7 +52,7 @@ export const ConfirmationFooter = ({
 							loading={option.cancel.loading}
 							disabled={option.cancel.loading}
 							onClick={option.cancel.onCancel}
-							className="w-full sm:!w-fit justify-center"
+							className="w-full sm:w-fit max-sm:justify-center"
 						>
 							{option.cancel.text}
 						</Button>
@@ -64,7 +64,7 @@ export const ConfirmationFooter = ({
 							loading={option.accept.loading}
 							disabled={option.accept.loading}
 							onClick={option.accept.onAccept}
-							className="w-full sm:!w-fit justify-center"
+							className="w-full sm:w-fit max-sm:justify-center"
 						>
 							{option.accept.text}
 						</Button>
