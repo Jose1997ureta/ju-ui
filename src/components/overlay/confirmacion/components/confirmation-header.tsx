@@ -19,7 +19,7 @@ export const ConfirmartionHeader = ({
 	return (
 		<div className={twMerge("p-4 relative sm:pb-3", className)}>
 			{children || (
-				<div className="sm:flex sm:items-center sm:justify-between sm:gap-x-3">
+				<div className="sm:flex sm:tems-center sm:justify-between sm:gap-x-3">
 					<div className="flex flex-col items-center sm:flex-row sm:gap-x-4 flex-1">
 						{icon}
 						<p className="text-lg mt-3 sm:mt-0 font-medium text-center sm:text-left leading-6 text-text-900 flex-1">
@@ -31,7 +31,7 @@ export const ConfirmartionHeader = ({
 						<ButtonIcon
 							onClick={handleClose}
 							size="md"
-							className="max-sm:absolute sm:relative max:sm:right-3 max:sm:top-3 sm:right-auto sm:top-auto"
+							className="!absolute sm:!relative right-3 top-3 sm:right-auto sm:top-auto"
 							variant="flat"
 						>
 							<IoCloseSharp />
