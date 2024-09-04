@@ -2,7 +2,7 @@
 	"name": "@jose-ureta/ju-ui",
 	"license": "ISC",
 	"private": false,
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"type": "module",
 	"main": "dist/ju-ui.umd.cjs",
 	"module": "dist/ju-ui.js",

@@ -8,6 +8,8 @@ import { ConfirmationBody } from "./components/confirmation-body";
 import { ConfirmationFooter } from "./components/confirmation-footer";
 import { ConfirmationProps } from "./interface/confirmation.interface";
 
+import "./styles/confirmation.css";
+
 export const Confirmation = ({
 	children,
 	show,
@@ -61,7 +63,7 @@ export const Confirmation = ({
 							>
 								<Dialog.Panel
 									className={twMerge(
-										"transform overflow-hidden transition-all rounded bg-white w-11/12 sm:!w-[500px]",
+										"transform overflow-hidden transition-all rounded bg-white w-11/12 sm:w-[500px]",
 										className
 									)}
 								>
