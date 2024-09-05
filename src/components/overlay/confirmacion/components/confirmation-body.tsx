@@ -15,7 +15,6 @@ export const ConfirmationBody = ({
 	return (
 		<div
 			className={twMerge(
-				"max-h-52 overflow-y-auto",
 				clsx(
 					isClose ? "sm:!mr-[48px] mr-5" : "mr-5",
 					isIcon ? "sm:!ml-[72px] ml-5" : "ml-5"
